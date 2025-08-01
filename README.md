@@ -1,7 +1,7 @@
 <div align="center">
   <br />
     <a href="https://youtu.be/eaN43zL6RKY" target="_blank">
-      <img src="https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.linkedin.com%2Fpulse%2Fhow-ai-voice-agents-transforming-sales-customer-engagement-banna-cmtyf&psig=AOvVaw3qmZO8U6eEfFoAtDbmrdA3&ust=1754124403574000&source=images&cd=vfe&opi=89978449&ved=0CBUQjRxqFwoTCKCqmuic6Y4DFQAAAAAdAAAAABA5" alt="Project Banner">
+      <img src="https://d3f1iyfxxz8i1e.cloudfront.net/courses/course_image/b34af62fc71f.jpg" alt="Project Banner">
     </a>
   <br />
   
@@ -88,8 +88,8 @@ Make sure you have the following installed on your machine:
 **Cloning the Repository**
 
 ```bash
-git clone https://github.com/adrianhajdin/ai_mock_interviews.git
-cd ai_mock_interviews
+git clone https://github.com/Abej-Rijwi/mock-interview.git
+cd mock-interview
 ```
 
 **Installation**
@@ -707,15 +707,4 @@ export const dummyInterviews: Interview[] = [
 
 ## <a name="links">🔗 Assets</a>
 
-Public assets used in the project can be found [here](https://drive.google.com/drive/folders/1DuQ9bHH3D3ZAN_CFKfBgsaB8DEhEdnog?usp=sharing)
-
-## <a name="more">🚀 More</a>
-
-**Advance your skills with Next.js Pro Course**
-
-Enjoyed creating this project? Dive deeper into our PRO courses for a richer learning adventure. They're packed with
-detailed explanations, cool features, and exercises to boost your skills. Give it a go!
-
-<a href="https://jsmastery.pro/next15" target="_blank">
-   <img src="https://github.com/user-attachments/assets/b8760e69-1f81-4a71-9108-ceeb1de36741" alt="Project Banner">
-</a>
+Public assets used in the project can be found [here](https://drive.google.com/drive/u/2/folders/1I4e8NpFkInKDTcCAYL8qktdyzQ9TEaCd)
