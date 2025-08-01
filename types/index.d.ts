@@ -56,9 +56,10 @@ interface AgentProps {
   questions?: string[];
 }
 
+// FIXED: params and searchParams should be objects, not promises
 interface RouteParams {
-  params: Promise<Record<string, string>>;
-  searchParams: Promise<Record<string, string>>;
+  params: Record<string, string>;
+  searchParams?: Record<string, string>;
 }
 
 interface GetFeedbackByInterviewIdParams {
@@ -94,6 +95,4 @@ interface InterviewFormProps {
   amount: number;
 }
 
-interface TechIconProps {
-  techStack: string[];
-}
+interface TechIconProps
