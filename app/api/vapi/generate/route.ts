@@ -26,12 +26,12 @@ export async function POST(request: Request) {
     });
 
     const interview = {
-      role: role,
-      type: type,
-      level: level,
-      techstack: techstack.split(","),
-      questions: JSON.parse(questions),
-      userId: userid,
+      role: role ?? "",
+      type: type ?? "",
+      level: level ?? "",
+      techstack: techstack ? techstack.split(",") : [],
+      questions: questions ? JSON.parse(questions) : [],
+      userId: userid ?? "",
       finalized: true,
       coverImage: getRandomInterviewCover(),
       createdAt: new Date().toISOString(),
