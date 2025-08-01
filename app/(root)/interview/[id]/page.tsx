@@ -14,12 +14,16 @@ import DisplayTechIcons from "@/components/DisplayTechIcons";
 const InterviewDetails = async ({ params }: RouteParams) => {
   const { id } = params;
 
+  // ✅ Guard against missing ID
+  if (!id) redirect("/");
+
   const user = await getCurrentUser();
   const interview = await getInterviewById(id);
   if (!interview) redirect("/");
 
+  // ✅ Guard against missing user or id before querying Firestore
   let feedback = null;
-  if (user?.id) {
+  if (user?.id && id) {
     feedback = await getFeedbackByInterviewId({
       interviewId: id,
       userId: user.id,

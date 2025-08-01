@@ -13,13 +13,12 @@ import {
 async function Home() {
   const user = await getCurrentUser();
 
-  // ✅ Prevent Firestore error when user is undefined
-  if (!user || !user.id) {
-    console.error("❌ No user or user.id found. Skipping Firestore calls.");
+  // ✅ Safeguard: prevent Firestore errors when user is not logged in
+  if (!user?.id) {
     return (
       <section className="card-cta">
         <div className="flex flex-col gap-6 max-w-lg">
-          <h2>Welcome to Prepwise</h2>
+          <h2>Welcome to PrepWise</h2>
           <p className="text-lg">Please sign in to view your interviews.</p>
           <Button asChild className="btn-primary max-sm:w-full">
             <Link href="/sign-in">Sign In</Link>
@@ -45,7 +44,6 @@ async function Home() {
           <p className="text-lg">
             Practice real interview questions & get instant feedback
           </p>
-
           <Button asChild className="btn-primary max-sm:w-full">
             <Link href="/interview">Start an Interview</Link>
           </Button>
@@ -62,7 +60,6 @@ async function Home() {
 
       <section className="flex flex-col gap-6 mt-8">
         <h2>Your Interviews</h2>
-
         <div className="interviews-section">
           {hasPastInterviews ? (
             userInterviews.map((interview) => (
@@ -84,7 +81,6 @@ async function Home() {
 
       <section className="flex flex-col gap-6 mt-8">
         <h2>Take Interviews</h2>
-
         <div className="interviews-section">
           {hasUpcomingInterviews ? (
             allInterview.map((interview) => (
