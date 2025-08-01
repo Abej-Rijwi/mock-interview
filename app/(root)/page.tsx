@@ -13,13 +13,29 @@ import {
 async function Home() {
   const user = await getCurrentUser();
 
+  // ✅ Prevent Firestore error when user is undefined
+  if (!user || !user.id) {
+    console.error("❌ No user or user.id found. Skipping Firestore calls.");
+    return (
+      <section className="card-cta">
+        <div className="flex flex-col gap-6 max-w-lg">
+          <h2>Welcome to Prepwise</h2>
+          <p className="text-lg">Please sign in to view your interviews.</p>
+          <Button asChild className="btn-primary max-sm:w-full">
+            <Link href="/sign-in">Sign In</Link>
+          </Button>
+        </div>
+      </section>
+    );
+  }
+
   const [userInterviews, allInterview] = await Promise.all([
-    getInterviewsByUserId(user?.id!),
-    getLatestInterviews({ userId: user?.id! }),
+    getInterviewsByUserId(user.id),
+    getLatestInterviews({ userId: user.id }),
   ]);
 
-  const hasPastInterviews = userInterviews?.length! > 0;
-  const hasUpcomingInterviews = allInterview?.length! > 0;
+  const hasPastInterviews = userInterviews?.length > 0;
+  const hasUpcomingInterviews = allInterview?.length > 0;
 
   return (
     <>
@@ -49,10 +65,10 @@ async function Home() {
 
         <div className="interviews-section">
           {hasPastInterviews ? (
-            userInterviews?.map((interview) => (
+            userInterviews.map((interview) => (
               <InterviewCard
                 key={interview.id}
-                userId={user?.id}
+                userId={user.id}
                 interviewId={interview.id}
                 role={interview.role}
                 type={interview.type}
@@ -71,10 +87,10 @@ async function Home() {
 
         <div className="interviews-section">
           {hasUpcomingInterviews ? (
-            allInterview?.map((interview) => (
+            allInterview.map((interview) => (
               <InterviewCard
                 key={interview.id}
-                userId={user?.id}
+                userId={user.id}
                 interviewId={interview.id}
                 role={interview.role}
                 type={interview.type}
